@@ -14,7 +14,7 @@ makeCacheMatrix <- function(x = matrix()) {
       }
       
       get <- function() x   ## return the value of x stored in the
-      ## makeVector object
+      ## makeCacheMatrix object
       
       setimatrix <- function(imatrix) i <<- imatrix ## set the value of m
       getimatrix <- function() i
@@ -39,8 +39,8 @@ cacheSolve <- function(x, ...) {
       }
       
       data <- x$get()
-      i <- solve(data, ...)  ## calculate the mean of data passing in any 
-      ## additional parameters received.
+      i <- solve(data, ...)  ## calculate the inverse matrix of data passing 
+      ## in any additional parameters received.
       
       x$setimatrix(i)   ## cache the newly caclulated inverse matrix 
                         ## in makeVector
