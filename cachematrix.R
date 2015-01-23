@@ -9,14 +9,14 @@ makeCacheMatrix <- function(x = matrix()) {
       i <- NULL # where we gone to store the inverse matrix
       
       set <- function(y) { ## Set the vector x to the value passed in.
-            x <<- y ## <<- to assign x in higher environment
+            x <<- y ## used <<- to assign x in higher environment
             i <<- NULL ## to reset m to NULL
       }
       
       get <- function() x   ## return the value of x stored in the
       ## makeCacheMatrix object
       
-      setimatrix <- function(imatrix) i <<- imatrix ## set the value of m
+      setimatrix <- function(imatrix) i <<- imatrix ## set the value of i
       getimatrix <- function() i
       
       list(set = set,       ## creates list of nested functions with tags
@@ -47,3 +47,9 @@ cacheSolve <- function(x, ...) {
       
       i                 ## return newly calculated inverse matrix
 }
+
+
+## Bellow one example of how to use the functions:
+## > testmatrix <- matrix(data = sample(1:25, 25),nrow = 5,ncol = 5)  # Creates a Matrix
+## > matrix1 <- makeCacheMatrix(testmatrix) # Create the special matrix
+## > cacheSolve(x = matrix1) # Solve the inverse matrix or get the result from cache
